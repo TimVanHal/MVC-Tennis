@@ -1,0 +1,163 @@
+﻿@model Tennis.NET.Models.Player
+
+@{
+    ViewBag.Title = "Details speler";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Speler</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayerNr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YearOfJoin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearOfJoin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HouseNr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MailBox)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MailBox)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zipcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zipcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FederationNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FederationNr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Roles)
+        </dt>
+
+        <dd>
+            @foreach (var r in Model.Roles)
+            {
+                @r.Name
+                <br/>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamPlayers)
+        </dt>
+
+        <dd>
+            @foreach (var tp in Model.TeamPlayers)
+            {
+                @Html.Raw("Speelt voor \"")
+                <b>@tp.Team.Name</b>
+                @Html.Raw("\" in ")
+                <b>@tp.Division.Name</b>
+                <br/>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fines)
+        </dt>
+
+        <dd>
+            @foreach (var f in Model.Fines)
+            {
+                @Html.Raw("Boete van € ")
+                <b>@f.Amount</b>
+                @Html.Raw(" op ")
+                <b>@f.FineDate.ToShortDateString()</b>
+                <br/>
+            }
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Bewerken", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Terug naar lijst", "Index")
+</p>

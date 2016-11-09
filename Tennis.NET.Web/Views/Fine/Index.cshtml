@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Tennis.NET.Models.Fine>
+
+@{
+    ViewBag.Title = "Boetes";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nieuwe boete aanmaken", "Create")
+    @if (ViewBag.filter)
+    {
+        @Html.Raw(" | ")
+        @Html.ActionLink("Volledige lijst", "Index")
+    }
+</p>
+<table class="display" id="indexTbl">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Player.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FineDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Player.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FineDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.ActionLink("Bewerken", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Verwijderen", "Delete", new { id=item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/datatables")
+    <script>
+        var table = $('#indexTbl').DataTable({ "language": { "url": "http://cdn.datatables.net/plug-ins/1.10.12/i18n/Dutch.json" } });
+    </script>
+}

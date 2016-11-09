@@ -1,0 +1,59 @@
+﻿@model Tennis.NET.Models.TeamPlayer
+
+@{
+    ViewBag.Title = "Nieuw";
+}
+
+<h2>Nieuw</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TeamId, "Team", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(tp => tp.TeamId, (IEnumerable<SelectListItem>)ViewBag.TmId, "Selecteer team", new { @class = "chosen-select" })
+                @Html.ValidationMessageFor(model => model.TeamId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerId, "Speler", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(tp => tp.PlayerId, (IEnumerable<SelectListItem>)ViewBag.plId, "Selecteer speler", new { @class = "chosen-select" })
+                @Html.ValidationMessageFor(model => model.PlayerId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DivisionId, "Divisie", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(tp => tp.DivisionId, (IEnumerable<SelectListItem>)ViewBag.DivId, "Selecteer divisie", new { @class = "chosen-select" })
+                @Html.ValidationMessageFor(model => model.DivisionId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Opslaan" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Terug naar lijst", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval", "~/bundles/chosen")
+    <script>
+        $(".chosen-select").chosen({ width: "250px" });
+    </script>
+}

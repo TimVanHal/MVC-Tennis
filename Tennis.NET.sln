@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tennis.NET.Models", "Tennis.NET.Models\Tennis.NET.Models.csproj", "{4E4EB64D-B431-4CD8-9589-52C166FA574A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tennis.NET.Annotations", "Tennis.NET.Annotations\Tennis.NET.Annotations.csproj", "{CD491BB3-8754-4F4D-B90E-EC3B796F1E93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tennis.NET.DataModel", "Tennis.NET.DataModel\Tennis.NET.DataModel.csproj", "{3CC00101-3A78-485A-B463-F2899F2D186A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tennis.NET.Repositories", "Tennis.NET.Repositories\Tennis.NET.Repositories.csproj", "{D20367B6-9616-407C-8F0C-E021E252DFB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tennis.NET.Web", "Tennis.NET.Web\Tennis.NET.Web.csproj", "{BF7E7E82-B022-4D67-A565-A247285B8D7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E4EB64D-B431-4CD8-9589-52C166FA574A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E4EB64D-B431-4CD8-9589-52C166FA574A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E4EB64D-B431-4CD8-9589-52C166FA574A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E4EB64D-B431-4CD8-9589-52C166FA574A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD491BB3-8754-4F4D-B90E-EC3B796F1E93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD491BB3-8754-4F4D-B90E-EC3B796F1E93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD491BB3-8754-4F4D-B90E-EC3B796F1E93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD491BB3-8754-4F4D-B90E-EC3B796F1E93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CC00101-3A78-485A-B463-F2899F2D186A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CC00101-3A78-485A-B463-F2899F2D186A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CC00101-3A78-485A-B463-F2899F2D186A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CC00101-3A78-485A-B463-F2899F2D186A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D20367B6-9616-407C-8F0C-E021E252DFB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D20367B6-9616-407C-8F0C-E021E252DFB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D20367B6-9616-407C-8F0C-E021E252DFB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D20367B6-9616-407C-8F0C-E021E252DFB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF7E7E82-B022-4D67-A565-A247285B8D7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF7E7E82-B022-4D67-A565-A247285B8D7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF7E7E82-B022-4D67-A565-A247285B8D7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF7E7E82-B022-4D67-A565-A247285B8D7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,37 @@
+﻿@model Tennis.NET.Models.Role
+
+@{
+    ViewBag.Title = "Details rol";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Rol</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Players)
+        </dt>
+        <dd>
+            @foreach (var p in Model.Players)
+            {
+                @p.FullName
+                <br/>
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Bewerken", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Terug naar lijst", "Index")
+</p>

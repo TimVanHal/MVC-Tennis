@@ -1,0 +1,55 @@
+﻿@model Tennis.NET.Models.Game
+
+@{
+    ViewBag.Title = "Wedstrijd verwijderen";
+}
+
+<h2>Verwijderen</h2>
+
+<h3>Bent u zeker dat u deze wedstrijd wilt verwijderen?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Naam speler 1")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Player1.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Naam speler 2")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Player2.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Player1Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Player1Score)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Player2Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Player2Score)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Verwijder" class="btn btn-default" /> |
+            @Html.ActionLink("Terug naar lijst", "Index")
+        </div>
+    }
+</div>

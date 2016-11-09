@@ -1,0 +1,154 @@
+﻿@model Tennis.NET.Web.ViewModels.PlayerViewModel
+
+@{
+    ViewBag.Title = "Speler bewerken";
+}
+
+<h2>Bewerken</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Speler</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.PlayerId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerNr, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PlayerNr)
+                @Html.ValidationMessageFor(model => model.PlayerNr)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerLastName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PlayerLastName)
+                @Html.ValidationMessageFor(model => model.PlayerLastName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerFirstName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PlayerFirstName)
+                @Html.ValidationMessageFor(model => model.PlayerFirstName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerBirthDay, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.PlayerBirthDay, "{0:d}")
+                @Html.ValidationMessageFor(model => model.PlayerBirthDay)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerGender, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @foreach (var value in Enum.GetValues(typeof(Tennis.NET.Models.Gender)))
+                {
+                    @Html.RadioButtonFor(model => model.PlayerGender, value.ToString())
+                    @value.ToString()
+                }
+                @Html.ValidationMessageFor(model => model.PlayerGender)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerYearOfJoin, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.PlayerYearOfJoin, Enumerable.Range(1950, DateTime.Today.Year - 1949).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "chosen-select" })
+                @Html.ValidationMessageFor(model => model.PlayerYearOfJoin)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerStreet, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PlayerStreet)
+                @Html.ValidationMessageFor(model => model.PlayerStreet)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerHouseNr, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PlayerHouseNr)
+                @Html.ValidationMessageFor(model => model.PlayerHouseNr)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerMailBox, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PlayerMailBox)
+                @Html.ValidationMessageFor(model => model.PlayerMailBox)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerZipcode, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PlayerZipcode)
+                @Html.ValidationMessageFor(model => model.PlayerZipcode)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerCity, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PlayerCity)
+                @Html.ValidationMessageFor(model => model.PlayerCity)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerPhoneNr, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PlayerPhoneNr)
+                @Html.ValidationMessageFor(model => model.PlayerPhoneNr)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerFederationNr, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PlayerFederationNr)
+                @Html.ValidationMessageFor(model => model.PlayerFederationNr)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AllRoles, "Role", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBoxFor(m => m.SelectedRoles, Model.AllRoles, new { @class = "chosen-select" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Opslaan" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Terug naar lijst", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval", "~/bundles/chosen")
+    <script type="text/javascript">
+        $(".chosen-select").chosen({ width: "250px" });
+        $("#PlayerBirthDay").datepicker({ maxDate: '-8Y', firstDay: 1, dateFormat: "dd/mm/yy", changeYear: true, changeMonth: true, yearRange: "-100:-8" });
+        $("#PlayerBirthDay").removeAttr("data-val-date");
+    </script>
+}

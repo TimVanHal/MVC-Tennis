@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Tennis.NET.Models.TeamPlayer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nieuw", "Create")
+    @if (ViewBag.filter)
+    {
+        @Html.Raw(" | ")
+        @Html.ActionLink("Volledige lijst", "Index")
+    }
+</p>
+<table class="display" id="indexTbl">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Division.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Team.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Division.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Player.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Team.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Verwijderen", "Delete", new { playerId = item.PlayerId, divisionId = item.DivisionId, teamId = item.TeamId })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/datatables")
+    <script>
+        var table = $('#indexTbl').DataTable({ "language": { "url": "http://cdn.datatables.net/plug-ins/1.10.12/i18n/Dutch.json" } });
+    </script>
+}

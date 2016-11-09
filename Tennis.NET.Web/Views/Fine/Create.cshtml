@@ -1,0 +1,62 @@
+﻿@model Tennis.NET.Models.Fine
+
+@{
+    ViewBag.Title = "Nieuwe boete aanmaken";
+}
+
+<h2>Nieuw</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Boete</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlayerId, "Naam", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(f => f.PlayerId, (IEnumerable<SelectListItem>)ViewBag.PlId, "Selecteer speler", new { @class = "chosen-select" })
+                @Html.ValidationMessageFor(model => model.PlayerId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FineDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.FineDate)
+                @Html.ValidationMessageFor(model => model.FineDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Amount, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Amount)
+                @Html.ValidationMessageFor(model => model.Amount)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Opslaan" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Terug naar lijst", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval", "~/bundles/chosen")
+    <script type="text/javascript">
+        $(".chosen-select").chosen({ width: "250px" });
+        $("#FineDate").datepicker({ firstDay: 1, dateFormat: "dd/mm/yy", changeYear: true, changeMonth: true, maxDate: "+0D" });
+    </script>
+
+}
